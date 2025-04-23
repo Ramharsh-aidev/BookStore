@@ -1,14 +1,68 @@
-/* static/css/style.css */
-body {
-    padding-top: 56px; /* Adjust if navbar height changes */
-}
-
-.container {
+html {
+    height: 100%; /* Make sure html element takes full height */
+  }
+  
+  body {
+    display: flex;          /* Enable Flexbox */
+    flex-direction: column; /* Stack children vertically (nav, main, footer) */
+    min-height: 100%;     /* Make body at least the full viewport height */
+    padding-top: 70px;      /* Existing padding for fixed navbar - adjust if your navbar height is different */
+  }
+  
+  main.container { /* Target the main content area */
+    flex-grow: 1; /* Allow the main content area to grow and push the footer down */
+  }
+  /* If your {% block content %} is directly inside body, you might target 'main' or a wrapper div */
+  
+  
+  /* --- Original and Basic Styles --- */
+  
+  .container {
     max-width: 1140px; /* Or your preferred width */
-}
-
-.card {
+    /* You might need width: 100%; here if you want the container to span full width within its parent */
+  }
+  
+  .card {
     border: 1px solid #ddd;
-}
-
-/* Add more custom styles here */
+    margin-bottom: 1.5rem; /* Add some space below cards */
+  }
+  
+  /* Styling for Django Messages (using Bootstrap alert colors as reference) */
+  .messages { list-style: none; padding: 0; margin: 1rem 0 0 0; }
+  .messages li.alert { /* Combined alert classes for styling */
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+  }
+  .messages li.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+  .messages li.error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+  .messages li.info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
+  .messages li.warning { background-color: #fff3cd; color: #856404; border-color: #ffeeba; }
+  
+  /* Form Validation Error Styling */
+  .form-error {
+      color: #dc3545; /* Bootstrap danger color */
+      font-size: 0.875em;
+      margin-top: 0.25rem; /* Add a little space below the input */
+  }
+  input.is-invalid, textarea.is-invalid { /* Style the input itself */
+      border-color: #dc3545;
+  }
+  
+  /* Custom Admin Panel Navigation */
+  .admin-nav {
+      background-color: #f8f9fa; /* Light grey background */
+      padding: 10px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #dee2e6; /* Subtle border */
+  }
+  
+  /* Footer basic styling */
+  footer.bg-light {
+      /* Ensure it doesn't shrink if using flexbox */
+      flex-shrink: 0;
+  }
+  
+  
+  /* --- Add more custom styles below as needed --- */
