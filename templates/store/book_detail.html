@@ -7,7 +7,7 @@
     <div class="col-md-8">
         <h2>{{ book.title }}</h2>
         <h4>by {{ book.author }}</h4>
-        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Price:</strong> ₹{{ book.price }}</p>
         <p><strong>Available Stock:</strong> {{ book.stock }}</p>
         <p><strong>Description:</strong></p>
         <p>{{ book.description|linebreaksbr|default:"No description available." }}</p>
