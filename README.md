@@ -65,7 +65,16 @@ The entire application is containerized using Docker and Docker Compose for easy
 ![image](https://github.com/user-attachments/assets/8fa0b7ea-01d5-47bd-9331-882a9edc2c6c)
 
 **Demo GIF:**
-![Demo GIF](<./path/to/your/demo.gif>)
+
+Customer Interface:
+
+![Part1 (1)](https://github.com/user-attachments/assets/2a045ea4-cb43-4ef5-96cb-b46d282a12d6)
+
+Admin Panel:
+
+![Part2](https://github.com/user-attachments/assets/9002a006-0661-4583-b3cc-67ca1ee8900a)
+
+
 
 ## Prerequisites
 
@@ -80,8 +89,8 @@ Before you begin, ensure you have the following installed on your system:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
-    cd bookstore-django-project # Or your repository's root directory name
+    git clone https://github.com/Ramharsh-aidev/BookStore
+    cd BookStore
     ```
 
 2.  **Configure Environment Variables:**
