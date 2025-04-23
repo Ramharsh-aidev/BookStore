@@ -1,0 +1,14 @@
+/* static/css/style.css */
+body {
+    padding-top: 56px; /* Adjust if navbar height changes */
+}
+
+.container {
+    max-width: 1140px; /* Or your preferred width */
+}
+
+.card {
+    border: 1px solid #ddd;
+}
+
+/* Add more custom styles here */

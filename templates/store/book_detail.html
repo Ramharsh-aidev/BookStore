@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ book.title }} - Bookstore{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h2>{{ book.title }}</h2>
+        <h4>by {{ book.author }}</h4>
+        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Available Stock:</strong> {{ book.stock }}</p>
+        <p><strong>Description:</strong></p>
+        <p>{{ book.description|linebreaksbr|default:"No description available." }}</p>
+
+        {% if book.stock > 0 %}
+            <form method="post" action="{% url 'store:add_to_cart' pk=book.pk %}">
+                {% csrf_token %}
+                <div class="mb-3" style="max-width: 150px;">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ book.stock }}" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+            </form>
+        {% else %}
+            <p class="text-danger">Out of Stock</p>
+        {% endif %}
+
+        <a href="{% url 'store:book_list' %}" class="btn btn-secondary mt-3">Back to Books</a>
+    </div>
+    <!-- Optional: Add image column if you add image field to model -->
+    <!-- <div class="col-md-4"> <img src="..." alt="{{ book.title }}" class="img-fluid"> </div> -->
+</div>
+{% endblock %}

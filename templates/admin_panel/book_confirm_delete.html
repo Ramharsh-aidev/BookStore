@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Confirm Delete - Admin{% endblock %}
+
+{% block content %}
+<h2>Confirm Deletion</h2>
+
+<nav class="admin-nav">
+     <ul class="nav nav-pills">
+      <li class="nav-item"><a class="nav-link" href="{% url 'admin_panel:dashboard' %}">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'admin_panel:book_list' %}">Manage Books</a></li>
+       <li class="nav-item"><a class="nav-link active" href="#">Confirm Delete</a></li>
+    </ul>
+</nav>
+
+<p>Are you sure you want to delete the book: <strong>"{{ book.title }}" by {{ book.author }}</strong>?</p>
+<p>This action cannot be undone.</p>
+
+<form method="post" action="{% url 'admin_panel:book_delete' pk=book.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'admin_panel:book_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

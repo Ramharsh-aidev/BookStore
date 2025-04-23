@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Admin Dashboard - Bookstore{% endblock %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<nav class="admin-nav">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a class="nav-link active" href="{% url 'admin_panel:dashboard' %}">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'admin_panel:book_list' %}">Manage Books</a></li>
+      <!-- Add links to manage users, orders etc. if implemented -->
+    </ul>
+</nav>
+
+<p>Welcome to the custom admin panel.</p>
+<p>Total books in catalog: {{ book_count }}</p>
+<!-- Add more dashboard widgets here -->
+{% endblock %}

@@ -1,0 +1,53 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0 # Use an official MySQL image
+    container_name: mysql_bookstore_db
+    volumes:
+      - mysql_data:/var/lib/mysql # Persist database data
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword} # Set root password (use .env or default)
+      MYSQL_DATABASE: ${DATABASE_NAME} # Read from .env
+      MYSQL_USER: ${DATABASE_USER}     # Read from .env
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Read from .env
+    ports:
+      # Expose MySQL port only if needed for external access (e.g., debugging)
+      # Be careful with exposing database ports in production
+      - "3307:3306" # Map host port 3307 to container port 3306 to avoid conflicts
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u$$MYSQL_USER", "-p$$MYSQL_PASSWORD"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  web:
+    build: . # Build the image from the Dockerfile in the current directory
+    container_name: django_bookstore_web
+    # command: python manage.py runserver 0.0.0.0:8000 # Development server (overrides Dockerfile CMD)
+    command: gunicorn --bind 0.0.0.0:8000 --workers 3 bookstore_project.wsgi:application # Production server (matches Dockerfile CMD)
+    volumes:
+      - .:/app # Mount current directory into /app for live code changes (development)
+      # - static_volume:/app/static # For production static files handling (requires collectstatic)
+    ports:
+      - "8000:8000" # Map host port 8000 to container port 8000
+    depends_on:
+      db:
+        condition: service_healthy # Wait for DB to be healthy before starting web
+    environment:
+      # Pass environment variables from .env file to the container
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_HOST=db # Service name defined above
+      - DATABASE_PORT=${DATABASE_PORT}
+    env_file:
+      - .env # Load variables from .env file (optional, already passed explicitly above)
+
+volumes:
+  mysql_data: # Define the named volume for MySQL data persistence
+# static_volume: # Define named volume for static files if using collectstatic

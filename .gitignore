@@ -1,0 +1,158 @@
+# --- Environment Variables ---
+# Never commit sensitive environment variables!
+.env
+.env.*
+!.env.example # Optionally commit an example env file without secrets
+
+# --- Python ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+# Usually unwanted files
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook (If used, otherwise remove)
+.ipynb_checkpoints
+
+# Virtual Environments
+venv/
+env/
+ENV/
+virtualenv/
+VENV/
+# Include any other name you might use for your virtual env
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# --- Django ---
+# Local Database Files (e.g., SQLite if used temporarily)
+*.sqlite3
+db.sqlite3
+*.db
+
+# Static files collected by 'collectstatic'
+staticfiles_collected/ # Default name
+static_root/ # If you use a different name
+
+# Media files (user uploads) - if applicable
+media/ # Or your MEDIA_ROOT if different
+
+# Log files
+*.log
+logs/
+
+# --- Docker ---
+# Ignore local Docker volume data if mapped directly (though named volumes are better)
+# It's generally safer rely on Docker managing named volumes outside the repo.
+# Add specific paths here only if necessary and they are not managed volumes.
+
+# Docker build context artifacts (if any appear)
+docker-build.*/
+
+# --- Operating System Files ---
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+# Trash directories
+.Trash-*
+
+# --- IDE / Editor Files ---
+# VS Code
+.vscode/*
+!.vscode/settings.json # Optionally allow sharing some settings
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+*.[Aa]tom*
+
+# Eclipse
+.project
+.pydevproject
+.settings/
+
+# Netbeans
+nbproject/
+
+# --- Other ---
+# Temporary files
+*.tmp
+*.swp
+*.swo
