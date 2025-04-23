@@ -23,7 +23,7 @@
             {% for item in cart_items %}
             <tr>
                 <td>{{ item.book.title }} by {{ item.book.author }}</td>
-                <td>${{ item.book.price }}</td>
+                <td>₹{{ item.book.price }}</td>
                 <td>
                     <form method="post" action="{% url 'store:update_cart' pk=item.book.pk %}" class="d-inline-flex align-items-center">
                         {% csrf_token %}
@@ -31,7 +31,7 @@
                         <button type="submit" class="btn btn-sm btn-outline-secondary ms-2">Update</button>
                     </form>
                 </td>
-                 <td>${{ item.item_total|floatformat:2 }}</td>
+                 <td>₹{{ item.item_total|floatformat:2 }}</td>
                  <td>
                     <form method="post" action="{% url 'store:remove_from_cart' pk=item.book.pk %}" class="d-inline">
                         {% csrf_token %}
@@ -44,7 +44,7 @@
         <tfoot>
             <tr>
                 <td colspan="3" class="text-end"><strong>Total:</strong></td>
-                <td><strong>${{ total_price|floatformat:2 }}</strong></td>
+                <td><strong>₹{{ total_price|floatformat:2 }}</strong></td>
                 <td></td>
             </tr>
         </tfoot>
