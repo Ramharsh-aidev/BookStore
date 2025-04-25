@@ -65,11 +65,11 @@ The entire application is containerized using Docker and Docker Compose for easy
 ![image](https://github.com/user-attachments/assets/8fa0b7ea-01d5-47bd-9331-882a9edc2c6c)
 
 **Docker Images:**
-![image](https://github.com/user-attachments/assets/a3fbf8fb-f412-4042-bb3f-753c9069682a)
+![Screenshot 2025-04-23 114631](https://github.com/user-attachments/assets/8ae67cee-11fd-4cca-9adb-1ec3e49df43e)
 
 ![image](https://github.com/user-attachments/assets/ff3f4662-4a9d-4a03-ab4a-acefa4d3abcd)
 
-![image](https://github.com/user-attachments/assets/5bc4087b-ed30-4506-958c-453778c88d73)
+![Screenshot 2025-04-22 231654](https://github.com/user-attachments/assets/1907f60b-a43f-410d-a3a6-930dc093bd82)
 
 
 **Demo GIF:**
