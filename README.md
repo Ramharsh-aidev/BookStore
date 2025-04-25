@@ -71,6 +71,10 @@ The entire application is containerized using Docker and Docker Compose for easy
 
 ![Screenshot 2025-04-22 231654](https://github.com/user-attachments/assets/1907f60b-a43f-410d-a3a6-930dc093bd82)
 
+**Jenkins:**
+![image](https://github.com/user-attachments/assets/52094aea-3f13-4e26-a920-c47904be40fb)
+
+
 
 **Demo GIF:**
 
